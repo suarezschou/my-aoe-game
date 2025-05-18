@@ -25,7 +25,8 @@ export default function Game() {
       newBoard[row][col] = selectedUnit.unit;
       newBoard[selectedUnit.position.row][selectedUnit.position.col] = null;
       setBoard(newBoard);
-      
+      setSelectedUnit(null);
+
     } else {
       setSelectedUnit(null);
     }
