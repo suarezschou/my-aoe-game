@@ -16,14 +16,14 @@ const Square: React.FC<SquareProps> = ({ row, col, unit, onSquareClick }) => {
 
   return (
     <div
-      className={`cursor-pointer border border-black flex justify-center items-center xl:w-20 xl:h-20 ${backgroundColorClass}`}
-      style={{ width: '12.5vw', height: '12.5vw' }}
+      className={`cursor-pointer border border-black flex justify-center items-center w-[12vw] h-[12vw] xl:w-[6vw] xl:h-[6vw] ${backgroundColorClass}`}
+      
       onClick={() => onSquareClick(row, col)}
     >
       {unit && (
         <div className="flex flex-col items-center justify-center w-full h-full">
           {unit.imageSrc && (
-            <div className="relative h-10 w-10">
+            <div className="relative w-[12vw] h-[12vw] xl:w-[5vw] xl:h-[5vw]">
               <Image
                 src={unit.imageSrc || "/placeholder.svg"}
                 alt={unit.name}
