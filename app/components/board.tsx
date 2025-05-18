@@ -10,7 +10,7 @@ interface BoardProps {
 
 const Board: React.FC<BoardProps> = ({ board, onSquareClick }) => {
   return (
-    <div className="grid grid-cols-8 border-black border-10">
+    <div className="grid grid-cols-8 border-black border-10 w-screen max-w-screen-sm">
 
       {board.map((row, rowIndex) =>
         

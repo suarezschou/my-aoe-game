@@ -16,7 +16,8 @@ const Square: React.FC<SquareProps> = ({ row, col, unit, onSquareClick }) => {
 
   return (
     <div
-      className={`cursor-pointer border border-black w-12 h-12 flex justify-center items-center xl:w-20 xl:h-20 ${backgroundColorClass}`}
+      className={`cursor-pointer border border-black flex justify-center items-center xl:w-20 xl:h-20 ${backgroundColorClass}`}
+      style={{ width: '12.5vw', height: '12.5vw' }}
       onClick={() => onSquareClick(row, col)}
     >
       {unit && (
