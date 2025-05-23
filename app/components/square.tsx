@@ -8,16 +8,27 @@ interface SquareProps {
   col: number
   unit: Unit | null
   onSquareClick: (row: number, col: number) => void;
+  selectedUnit: { unit: Unit; position: { row: number; col: number } } | null;
+  validMoves: { row: number; col: number }[];
 }
 
-const Square: React.FC<SquareProps> = ({ row, col, unit, onSquareClick }) => {
+const Square: React.FC<SquareProps> = ({ row, col, unit, onSquareClick, selectedUnit,validMoves }) => {
   const isBlack = (row + col) % 2 === 1
   const backgroundColorClass = isBlack ? "bg-fuchsia-800" : "bg-white"
+  const isSelected = selectedUnit && selectedUnit.position.row === row && selectedUnit.position.col === col;
+
+  const isValidMoveTarget = validMoves.some(
+    (move) => move.row === row && move.col === col
+  );
+
 
   return (
     <div
-      className={`cursor-pointer border border-black flex justify-center items-center w-[12vw] h-[12vw] xl:w-[6vw] xl:h-[6vw] ${backgroundColorClass}`}
-      
+      className={`cursor-pointer border-black border flex justify-center items-center 
+      w-[12vw] h-[12vw] xl:w-[6vw] xl:h-[6vw] 
+      ${backgroundColorClass} 
+      ${isSelected ? 'border-4 border-yellow-400' : ''}
+      ${isValidMoveTarget ? 'border-8 border-green-500' : ''}`}
       onClick={() => onSquareClick(row, col)}
     >
       {unit && (

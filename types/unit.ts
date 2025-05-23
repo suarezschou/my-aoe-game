@@ -4,4 +4,5 @@ export interface Unit {
   health: number;
   attack: number;
   imageSrc: string;
+  movementType: 'knight' | 'rook_one_square';
 }
